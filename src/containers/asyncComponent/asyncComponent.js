@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-const asyncComponent = (importComponent) => {
+const asyncComponent = (importedComponent) => {
     return class extends Component {
         state = {
             component: null
         }    
         
         componentDidMount () {
-            importComponent()
+            importedComponent()
                 .then(cmp => {
                     this.setState({component: cmp.default});
                 });
